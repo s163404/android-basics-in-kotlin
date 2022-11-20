@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         // アプリ開始時にサイコロを振る
         rollDice()
         logging()
+        //division()
     }
 
     /**
@@ -48,6 +49,15 @@ class MainActivity : AppCompatActivity() {
         diceImage.setImageResource(drawableResource)
         // アクセシビリティ対応(読み上げできるようにImageViewに適切なコンテンツの説明を設定）
         diceImage.contentDescription = diceRoll.toString()
+    }
+
+    fun division() {
+        val numerator = 60
+        var denominator = 4
+        repeat(5) {
+            Log.v(TAG, "${numerator / denominator}")
+            denominator--
+        }
     }
 
     fun logging() {
