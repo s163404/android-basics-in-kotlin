@@ -2,8 +2,11 @@ package com.example.diceroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+
+private const val TAG = "MainActivity"
 
 /**
  * This activity allows the user to roll a dice and view result
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         // アプリ開始時にサイコロを振る
         rollDice()
+        logging()
     }
 
     /**
@@ -44,6 +48,14 @@ class MainActivity : AppCompatActivity() {
         diceImage.setImageResource(drawableResource)
         // アクセシビリティ対応(読み上げできるようにImageViewに適切なコンテンツの説明を設定）
         diceImage.contentDescription = diceRoll.toString()
+    }
+
+    fun logging() {
+        Log.e(TAG, "ERROR: a serious error like an app crash")
+        Log.w(TAG, "WARN: warns about the potential for serious errors")
+        Log.i(TAG, "INFO: reporting technical information, such as an operation succeeding")
+        Log.d(TAG, "DEBUG: reporting technical information useful for debugging")
+        Log.v(TAG, "VERBOSE: more verbose than DEBUG logs")
     }
 
 }
