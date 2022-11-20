@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById(R.id.button2)
         rollButton.setOnClickListener { rollDice() }
+
+        // アプリ開始時にサイコロを振る
+        rollDice()
     }
 
     /**
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         // Update the screen with the dice roll
         val diceImage: ImageView = findViewById(R.id.imageView)
+        // 目の数に対応するリソースIDを取得
         val drawableResource = when (diceRoll) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
@@ -36,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             5 -> R.drawable.dice_5
             else -> R.drawable.dice_6
         }
+        // ImageViewを更新する
         diceImage.setImageResource(drawableResource)
         // アクセシビリティ対応(読み上げできるようにImageViewに適切なコンテンツの説明を設定）
         diceImage.contentDescription = diceRoll.toString()
