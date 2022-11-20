@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity() {
 
 }
 
+/**
+ * Dice with designated number of sides.
+ */
 class Dice(private val numSides: Int) {
     fun roll(): Int {
         return (1..numSides).random()
