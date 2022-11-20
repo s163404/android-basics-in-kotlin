@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
         diceImage.setImageResource(drawableResource)
+        // アクセシビリティ対応(読み上げできるようにImageViewに適切なコンテンツの説明を設定）
+        diceImage.contentDescription = diceRoll.toString()
     }
 
 }
