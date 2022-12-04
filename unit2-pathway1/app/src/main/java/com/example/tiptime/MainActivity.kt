@@ -12,10 +12,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // XMLレイアウトのViewsへのアクセスに使うbindingオブジェクトを初期化する
+        // activity_main.xmlレイアウトのViewsへのアクセスに使うbindingオブジェクトを初期化する
         binding = ActivityMainBinding.inflate(layoutInflater)
         // アクティビティのコンテンツビューを設定する。
-        // `setContentView(R.layout.activity_main)`の代わりにアプリのビュー階層のルートbinding.rootを指定する。
+        // R.layout.activity_mainの代わりにアプリのビュー階層のルートbinding.rootを指定する。
         setContentView(binding.root)
     }
 }
