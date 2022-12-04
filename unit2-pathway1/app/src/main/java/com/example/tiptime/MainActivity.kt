@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
 
         // チップの書式を設定して表示する
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
+        // 文字列リソースからIDで文字列を参照して、文字列パラメータにformattedTipを代入
+        // その文字列をtipResult のtext に格納
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
 }
