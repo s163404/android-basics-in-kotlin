@@ -8,7 +8,7 @@ import java.text.NumberFormat
 class MainActivity : AppCompatActivity() {
     // バインディングオブジェクトのクラス内の最上位変数を宣言
     // `lateinit` コードが変数を使用する前に初期化することを保証する（初期化しない場合アプリがクラッシュする）
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // チップを計算し、計算結果を表示する
-    fun calculateTip() {
+    private fun calculateTip() {
         // 料金を取得する
         val stringTextField = binding.costOfService.text.toString()
         val cost = stringTextField.toDoubleOrNull()
@@ -33,8 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // チップの割合を取得する
-        val selectedId = binding.tipOptions.checkedRadioButtonId
-        val tipPercentage = when (selectedId) {
+        val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
             R.id.option_twenty_percent -> 0.20
             R.id.option_eighteen_percent -> 0.18
             else -> 0.15
@@ -43,8 +42,7 @@ class MainActivity : AppCompatActivity() {
         // チップを計算
         // 必要に応じて端数を切り上げる
         var tip = tipPercentage * cost
-        val roundUp = binding.roundUpSwitch.isChecked
-        if (roundUp) {
+        if (binding.roundUpSwitch.isChecked) {
             tip = kotlin.math.ceil(tip)
         }
 
