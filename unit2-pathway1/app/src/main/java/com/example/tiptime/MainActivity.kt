@@ -27,7 +27,10 @@ class MainActivity : AppCompatActivity() {
     fun calculateTip() {
         // 料金を取得する
         val stringTextField = binding.costOfService.text.toString()
-        val cost = stringTextField.toDouble()
+        val cost = stringTextField.toDoubleOrNull()
+        if (cost == null) {
+            return
+        }
 
         // チップの割合を取得する
         val selectedId = binding.tipOptions.checkedRadioButtonId
