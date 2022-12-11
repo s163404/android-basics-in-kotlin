@@ -28,8 +28,9 @@ class MainActivity : AppCompatActivity() {
         // 料金を取得する
         val stringTextField = binding.costOfService.text.toString()
         val cost = stringTextField.toDoubleOrNull()
-        if (cost == null) {
-            binding.tipResult.text = ""
+        // If the cost is null or 0, then display 0 tip and exit this function early.
+        if (cost == null || cost == 0.0) {
+            displayTip(0.0)
             return
         }
 
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             else -> 0.15
         }
 
+
         // チップを計算
         // 必要に応じて端数を切り上げる
         var tip = tipPercentage * cost
@@ -47,6 +49,11 @@ class MainActivity : AppCompatActivity() {
             tip = kotlin.math.ceil(tip)
         }
 
+        // Display the formatted tip value on screen
+        displayTip(tip)
+    }
+
+    private fun displayTip(tip: Double) {
         // チップの書式を設定して表示する
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
         // 文字列リソースからIDで文字列を参照して、文字列パラメータにformattedTipを代入
