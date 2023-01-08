@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     // チップを計算し、計算結果を表示する
     private fun calculateTip() {
         // 料金を取得する
-        val stringTextField = binding.costOfService.text.toString()
+        val stringTextField = binding.costOfServiceEditText.text.toString()
         val cost = stringTextField.toDoubleOrNull()
         // If the cost is null or 0, then display 0 tip and exit this function early.
         if (cost == null || cost == 0.0) {
