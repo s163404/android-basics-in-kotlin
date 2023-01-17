@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView">
+        <!-- 高さの最小値-->
+        <item name="android:minHeight">48dp</item>
+        <!--    コンテンツの縦方向の位置    -->
+        <item name="android:gravity">center_vertical</item>
+        <!--    テキストサイズ、フォント、およびテキストのその他プロパティに関する事前作成済みのスタイルのセット    -->
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+</resources>
