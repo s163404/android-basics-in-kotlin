@@ -73,14 +73,12 @@
 
         <RadioButton
             android:id="@+id/option_eighteen_percent"
-            style="@style/Widget.TipTime.CompoundButton.RadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/good_service" />
 
         <RadioButton
             android:id="@+id/option_fifteen_percent"
-            style="@style/Widget.TipTime.CompoundButton.RadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ok_service" />
