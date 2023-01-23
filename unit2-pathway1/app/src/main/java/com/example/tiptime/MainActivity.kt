@@ -1,6 +1,10 @@
 package com.example.tiptime
 
+import android.content.Context
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
@@ -21,6 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         // クリックリスナーを登録
         binding.calculateButton.setOnClickListener{ calculateTip() }
+
+        // キーボードのキーリスナーを登録
+        binding.costOfServiceEditText.setOnKeyListener{ view, keyCode, _ -> handleKeyEvent(view, keyCode) }
     }
 
     // チップを計算し、計算結果を表示する
@@ -59,5 +66,17 @@ class MainActivity : AppCompatActivity() {
         // 文字列リソースからIDで文字列を参照して、文字列パラメータにformattedTipを代入
         // その文字列をtipResult のtext に格納
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+    }
+
+    // keyCodeパラメータがKEYCODE_ENTERと等しい場合に画面キーボードを非表示にする
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            // Hide the keyboard
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            return true
+        }
+        return false
     }
 }
